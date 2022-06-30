@@ -122,6 +122,7 @@ namespace Luban.Job.Common.Utils
             { "protobuf", "bytes" },
             { "msgpack", "bytes" },
             { "flatbuffers", "bytes" },
+            { "nino", "bytes" },
         };
 
         public static string GetOutputFileSuffix(string genType)

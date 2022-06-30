@@ -156,6 +156,12 @@ namespace Luban.Job.Cfg.Utils
                     jsonWriter.Flush();
                     return DataUtil.StreamToBytes(ss);
                 }
+                case "data_nino":
+                    using (var ninoWriter = new Nino.Serialization.Writer(Encoding.UTF8))
+                    {
+                        NinoExportor.Ins.WriteList(table, records, ninoWriter);
+                        return ninoWriter.ToCompressedBytes();
+                    }
                 //case "data_erlang":
                 //{
                 //    var content = new StringBuilder();

@@ -25,6 +25,15 @@
     <EmbeddedResource Remove="Scripts\**" />
     <None Remove="Datas\**" />
     <None Remove="Scripts\**" />
+    <None Update="Templates\config\cs_nino\table.tpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\config\cs_nino\bean.tpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\config\cs_nino\tables.tpl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
