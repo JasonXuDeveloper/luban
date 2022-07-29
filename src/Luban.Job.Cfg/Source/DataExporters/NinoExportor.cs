@@ -45,6 +45,7 @@ namespace Luban.Job.Cfg.DataExporters
                 case DFlong x: Accept(x, ref writer); break;
                 case DFshort x: Accept(x, ref writer); break;
                 case DShort x: Accept(x, ref writer); break;
+                case DDateTime x: Accept(x, ref writer); break;
                 default: throw new NotSupportedException($"DType:{type.GetType().FullName} not support");
             }
         }
@@ -113,7 +114,12 @@ namespace Luban.Job.Cfg.DataExporters
         {
             writer.Write(type.Value);
         }
-
+        
+        public void Accept(DDateTime type, ref Writer writer)
+        {
+            writer.Write(type.Time);
+        }
+        
         public void Accept(DBean type, ref Writer writer)
         {
             var defFields = type.ImplType.HierarchyFields;

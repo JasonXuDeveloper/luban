@@ -11,6 +11,7 @@ using Luban.Job.Common.Tpl;
 using Luban.Job.Common.Types;
 using Luban.Job.Common.Utils;
 using MessagePack;
+using Nino.Serialization;
 using Scriban;
 using System;
 using System.Collections.Generic;
@@ -157,11 +158,9 @@ namespace Luban.Job.Cfg.Utils
                     return DataUtil.StreamToBytes(ss);
                 }
                 case "data_nino":
-                    using (var ninoWriter = new Nino.Serialization.Writer(Encoding.UTF8))
-                    {
+                    var ninoWriter = new Nino.Serialization.Writer(Encoding.UTF8);
                         NinoExportor.Ins.WriteList(table, records, ninoWriter);
-                        return ninoWriter.ToCompressedBytes();
-                    }
+                        return ninoWriter.ToBytes();
                 //case "data_erlang":
                 //{
                 //    var content = new StringBuilder();
